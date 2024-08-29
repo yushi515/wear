@@ -1,0 +1,52 @@
+<body>
+
+<header>
+
+    <h1>Where Wear</h1>
+    <div class="header-list">
+      <ul>
+       <li><%= link_to "LOGIN.", posts_path %></li>
+      </ul>
+    </div>
+    
+</header>
+
+<link rel="stylesheet" href="sign.scss">
+
+<section id="first-block">
+
+<%= form_for(resource, as: resource_name, url: user_registration_path) do |f| %>
+  <%= render "users/shared/error_messages", resource: resource %>
+
+  <div class="sign">
+  
+    <br>
+    <%= f.label :email %><br />
+    <p><%= f.email_field :email, autofocus: true, autocomplete: "email" %><p>
+
+    <%= f.label :name %><br />
+    <p><%= f.text_field :name, autofocus: true %><P>
+
+    <%= f.label :image %>
+    <P><%= f.file_field :image %><P>
+
+    <%= f.label :password %>
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %><br />
+    <p><%= f.password_field :password, autocomplete: "new-password" %><P>
+
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+
+  <span>
+  
+   <p><%= f.submit "Sign up" %><P>
+  </span>
+
+  </div>
+<% end %>
+
+</section>
+
+</body>

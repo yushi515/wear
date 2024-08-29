@@ -1,0 +1,50 @@
+<body>
+  <header>
+    <h1>Where Wear</h1>
+    <div class="header-list">
+      <ul>
+        <li><%= link_to "Back", posts_path %></li>
+      </ul>
+    </div>
+  </header>
+
+  <section id="detail-block">
+    <div class="shown">
+      <div class="show">
+        <p><%= image_tag @post.image_url, size: "450x550" if @post.image? %></p>
+        <p><%= @post.created_at %></p>
+        <% @post.tags.each do |tag| %>
+          <span><%= tag.name %></span>
+        <% end %>
+
+        <% if user_signed_in? %>
+          <% if current_user.already_liked?(@post) %>
+            <%= button_to post_like_path(@post), method: :delete do %>
+              <i class="fas fa-heart"></i><%= @post.likes.count %>
+            <% end %>
+          <% else %>
+            <%= button_to post_likes_path(@post), method: :post do %>
+              <i class="fas fa-heart"></i><%= @post.likes.count %>
+            <% end %>
+          <% end %>
+        <% else %>
+          <i class="far fa-heart"></i><%= @post.likes.count %>
+        <% end %>
+      </div>
+
+      <div class="poster">
+        <h2>Comments</h2>
+        <p><%= @post.comments %></p>
+        <br><br><br>
+        <h2>いいねしたユーザー</h2>
+        <% @post.liked_users.each do |user| %>
+          <li><%= user.email %></li>
+        <% end %>
+        <%= link_to "Edit", edit_post_path(@post.id) %>
+      </div>
+    </div>
+  </section>
+</body>
+
+
+

@@ -1,0 +1,118 @@
+<html lang="ja"><!--言語の指定-->
+  <head><!--ページに表示されない情報(サイトの裏側の設定)-->
+    <meta charset="utf-8">
+    <title></title><!--ブラウザのタブのタイトルを指定-->
+    <link rel="stylesheet" href="top.scss">
+  </head>
+
+<body>
+  <header class="header-nav">
+    <h1>Where Wear</h1>
+  
+    <div class="header-list">
+      <ul>
+       <li><%= link_to "LOGIN", posts_path %></li>
+       <li><%= link_to "SING UP", new_user_registration_path %><li>
+      </ul>
+    </div>
+     
+  </header>
+
+    <section id="one-block"> 
+      <div class="text-container">
+       <b>Where×Wear<b>
+      </div>
+
+    </section>
+
+    <section id="two-block">
+      <br>
+      <br>
+      <h3>About.</h3>
+      <br>
+      <div class="About">
+
+        <div class="t-shirts">
+          <%= image_tag ("t-shirts.png"), size: '320x320' %>
+          <style>
+          border-radius: 10px 30px 0 40px;
+          </style>
+        </div>
+        
+        <div class="ttt">
+             <p>場所・場面に特化したファッション投稿サイト<p>
+             <br>
+          <h2>Where×Wear</h2>
+             <br>
+             <p>(場所)×(着る)</p>
+        </div>
+
+      </div>
+
+    </section>
+
+    <section id="three-block">
+    <br>
+    <br>
+    <h3>Outfit</h3>
+    <br>
+    <br>
+      <div class="wrap slide-paused" ontouchstart="">
+      
+       <ul class="slideshow">
+         <li class="content"><%= image_tag ("masaya.jpg"), size: '330x320' %></li>
+         <li class="content"><%= image_tag ("go.jpg"), size: '330x320' %></li>
+         <li class="content"><%= image_tag ("street.jpg"), size: '330x320' %></li>
+         <li class="content"><%= image_tag ("me.jpg"), size: '330x320' %></li>
+       </ul>
+       <ul class="slideshow">
+         <li class="content"><%= image_tag ("masaya.jpg"), size: '330x320' %></li>
+         <li class="content"><%= image_tag ("go.jpg"), size: '330x320' %></li>
+         <li class="content"><%= image_tag ("street.jpg"), size: '330x320' %></li>
+         <li class="content"><%= image_tag ("me.jpg"), size: '330x320' %></li>
+       </ul>
+       <ul class="slideshow">
+         <li class="content"><%= image_tag ("masaya.jpg"), size: '330x320' %></li>
+         <li class="content"><%= image_tag ("go.jpg"), size: '330x320' %></li>
+         <li class="content"><%= image_tag ("street.jpg"), size: '330x320' %></li>
+         <li class="content"><%= image_tag ("me.jpg"), size: '330x320' %></li>
+       </ul>
+      </div>
+  
+    </section>
+
+
+    <section id="four-block">
+      <br>
+      <br>
+      <h3>Profile.</h3>
+      <br>
+      <br>
+      <div class="Profile">
+        
+        <div class="imagess">
+          <%= image_tag ("yyy.jpg"), size: '320x320' %>
+        </div>
+
+        <div class="profi">
+          <h3>YUSHI</h3>
+          <br>
+          <b>長崎県出身。大学3年生。<b>
+          <br>     
+          小学校から高校まで10年間野球を続け、
+          <br>
+          大学時代はアパレル店でアルバイトしていました。
+          <br>
+          洋服への愛は誰にも負けません。
+        </div>
+
+      </div>
+
+    </section>
+
+    <footer>
+      <p>Copyright © Where×Wear All Rights Reserved.</p>
+    </footer>
+  </body>
+</html>
+

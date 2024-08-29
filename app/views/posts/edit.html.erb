@@ -1,0 +1,45 @@
+
+<body>
+
+<header>
+
+    <h1>Where Wear</h1>
+    <div class="header-list">
+      <ul>
+       <li><%= link_to "Back", posts_path %></li>
+      </ul>
+    </div>
+    
+</header>
+
+<link rel="stylesheet" href="edit.scss">
+
+<section id="edit-block">
+
+<div class="edit">
+  <div class="picture">
+  <p><%= image_tag @post.image_url, size: "450x550" if @post.image? %></P>
+  </div>
+
+  <%= form_for @post do |f| %>
+
+  <div class="editer">
+   <p><%= f.label :edit %></P>
+   <%= f.text_field :comments, :size => "60x100" %> 
+   <br>
+   <br>
+   <p> <%= f.submit "編集する" %>
+  </div>
+    <% end %>
+
+</div>
+<br>
+<br>
+
+</section>
+
+</body>
+
+
+
+

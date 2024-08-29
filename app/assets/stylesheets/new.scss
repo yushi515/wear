@@ -1,0 +1,41 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+#second-block {
+  min-height: 100vh;
+  position: relative; 
+  font-family: "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", "メイリオ",
+    Meiryo, "ＭＳ Ｐゴシック", sans-serif;
+  flex-direction: column;
+  background-image: url("2024-01-17.png");
+  background-size: cover;
+  
+}
+
+.form{
+  margin: 125px auto;
+  width: 900px;
+  height: 600px;
+  border-radius: 5%;
+  background-color: #ffffff;
+  padding: 50px;
+  font-size: 28px;
+  font-family: 'Arial Black','Helvetica Neue','Helvetica','Arial','Hiragino Sans','ヒラギノ角ゴシック',YuGothic,'Yu Gothic','メイリオ', Meiryo,'ＭＳ Ｐゴシック','MS PGothic'  
+}
+
+.submit{
+  display: flex;
+  gap: 80px;
+  justify-content: center;
+}
+
+#image-preview{
+  width: 450px;
+  height: 550px;
+}
+
+.form-group{
+  position: relative;
+}

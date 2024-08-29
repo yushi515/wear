@@ -1,0 +1,50 @@
+
+<body>
+
+<header>
+
+    <h1>Where Wear</h1>
+    <div class="header-list">
+      <ul>
+       <li><%= link_to "Sign up", new_user_registration_path %></li>
+      </ul>
+    </div>
+    
+</header>
+
+<link rel="stylesheet" href="login.scss">
+
+<section id="first-block">
+
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+
+  <div class="login">
+    <br>
+    <br>
+    <p> <%= f.label :email %></p>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  
+    <p><%= f.label :password %></p>
+    <%= f.password_field :password, autocomplete: "off" %>
+
+  <% if devise_mapping.rememberable? -%>
+
+      <p><%= f.label :remember_me %></p>
+      <p><%= f.check_box :remember_me %></P>
+      <br>
+      <p><%= f.submit "Log in" %></p>
+
+  <% end -%>
+
+    <span>
+
+    <%= render "users/shared/links" %>
+    </span>
+
+    </div>
+
+<% end %>
+
+</section>
+
+</body>

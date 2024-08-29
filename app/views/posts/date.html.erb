@@ -1,0 +1,43 @@
+<header>
+  <h1>Where Wear</h1>
+  <div class="header-list">
+    <ul>
+      <li><%= link_to "Back", posts_path %></li>
+    </ul>
+  </div>
+</header>
+
+<link rel="stylesheet" href="date.scss">
+
+<section id="love-block">
+  <!-- Content for love-block can be added here -->
+</section>
+
+<section id="date-block">
+  <h3>投稿一覧</h3>
+  <br>
+  <div class="date">
+    <% @dates.each do |t| %>
+      <div class="post-entry">
+        <%= image_tag t.image_url, size: "345x395" if t.image? %>
+        <p><%= link_to t.user.name, user_path(t.user.id) %></p>
+        <%= link_to "Detail", post_path(t.id) %>
+        
+        <% if user_signed_in? %>
+          <% if current_user.already_liked?(t) %>
+            <%= button_to post_like_path(id: t.id, post_id: t.id), method: :delete do %>
+              <i class="fas fa-heart"></i><%= t.likes.count %>
+            <% end %>
+          <% else %>
+            <%= button_to post_likes_path(id: t.id, post_id: t.id), method: :post do %>
+              <i class="far fa-heart"></i><%= t.likes.count %>
+            <% end %>
+          <% end %>
+        <% else %>
+          <i class="far fa-heart"></i><%= t.likes.count %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</section>
+

@@ -1,0 +1,68 @@
+<section id="second-block">
+
+<body>
+
+<header>
+
+    <h1>Where Wear</h1>
+    <div class="header-list">
+      <ul>
+       <li><%= link_to "Back", posts_path %></li>
+      </ul>
+    </div>
+    
+</header>
+
+<link rel="stylesheet" href="new.scss">
+
+      
+<div class="form">
+  <%= form_for @post do |f| %>
+  <div class="submit">
+     <div class="image">
+       <%= f.label :image %>
+       <br>
+       <%= f.file_field :image, id:"file-input",onchange:"previewImage()" %>
+       <img id="image-preview" src="#" alt="Image Preview" hidden/>
+     </div>
+     
+     <div class='form-group'>
+
+      <%= f.label :Comments %>
+      <br>
+      <%= f.text_field :comments, :size => 50%>
+      <p>scene</P>
+      <%= f.select :category, [["date", "date"], ["travel", "travel"], ["cafe", "cafe"]], include_blank: "どの投稿？" %>
+      <end> 
+      <%= f.collection_check_boxes(:tag_ids, Tag.all, :id, :name) do |tag| %>
+
+    <div class='form-check'>
+          <%= tag.label class: 'form-check-label' do %>
+          <%= tag.check_box class: 'form-check-input' %>
+          <%= tag.text %>
+          <% end %>  
+    </div>
+      
+      <% end %>
+      <%= f.submit "投稿する" %>
+  </div>
+  <% end %>
+     
+</div>  
+
+</section>
+
+<script>
+  // プレビュー表示
+  const previewImage = () => {
+    const fileInput = document.getElementById("file-input");
+    const imagePreview = document.getElementById("image-preview");
+
+    if (fileInput.files && fileInput.files[0]) {
+      const reader = new FileReader();
+      reader.onload = (e) => (imagePreview.src = e.target.result);
+      reader.readAsDataURL(fileInput.files[0]);
+      imagePreview.hidden = false;
+    }
+  };
+</script>

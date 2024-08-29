@@ -1,0 +1,62 @@
+<header>
+
+    <h1>Where Wear</h1>
+    <div class="header-list">
+      <ul>
+        <li><%= link_to "Cafe", posts_cafe_path %></li>
+        <li><%= link_to "Travel", posts_travel_path %></li>
+        <li><%= link_to "Date", posts_date_path %></li>
+        <li><% if user_signed_in? %> <%= link_to "MY PAGE", user_path(current_user.id) %><% end %></li>
+        <li><%= link_to 'NEW POST', new_post_path %></li>
+        <li><%= button_to 'LOG OUT', destroy_user_session_path, method: :delete %></li>
+      </ul>
+    </div>
+    
+</header>
+
+<link rel="stylesheet" href="index.scss">
+
+<section id="index-block"> 
+
+</section>
+
+<section id="homme-block"> 
+
+<h3>投稿一覧</h3>
+<br>
+
+<div class="date">
+
+<% @posts.each do |t| %>
+  
+       <div class="dddd">
+
+       <%= image_tag t.image_url, size: "345x395" if t.image? %>
+      
+       <p><%= link_to t.user.name, user_path(t.user.id) %></p>
+          <%= link_to "Detail", post_path(t.id) %>
+          <% if user_signed_in? %>
+          <% if current_user.already_liked?(t) %>
+          <%= button_to post_like_path(id: t.id, post_id: t.id), method: :delete do %>
+          <i class="fas fa-heart"></i><%= t.likes.count %>
+          <% end %>
+          <% else %>
+          <%= button_to post_likes_path(id: t.id, post_id: t.id), method: :post do %>
+          <i class="far fa-heart"></i><%= t.likes.count %>
+          <% end %>
+          <% end %>
+          <% else %>
+
+          <i class="far fa-heart">
+          </i><%= t.likes.count %>
+          <% end %>
+       
+      </div>
+      
+  <% end %>
+
+</div>
+
+</section>
+
+

@@ -1,0 +1,74 @@
+<body>
+
+<header>
+
+    <h1>Where Wear</h1>
+    <div class="header-list">
+      <ul>
+       <li><%= link_to "BACK.", posts_path %></li>
+      </ul>
+    </div>
+    
+</header>
+
+<link rel="stylesheet" href="my page.scss">
+
+<div class="pro">
+<div class="namer">
+  <div class="proga">
+   <%= image_tag @user.image_url, size: "250x200" if @user.image? %>
+  </div>
+    <h5>Name : <%= @user.name %></h5>
+    <h5>E-mail : <%= @user.email %></h5>
+    <h5>Profile : <%= @user.profile %></h5>
+    <% if current_user.id == @user.id %>
+    <h6><%= link_to "Edit", edit_user_registration_path %></h6>
+    <% end %>
+  </div>
+  <br>
+  <br>
+  <br>
+  <br>
+  <h2>投稿一覧</h2>
+
+  <div class="date">
+  
+<% @user.posts.each do |t| %>
+  
+  <div class="dddd">
+
+  <%= image_tag t.image_url, size: "345x395" if t.image? %>
+ 
+    <% if user_signed_in? %>
+    <% if current_user.already_liked?(t) %>
+     <%= button_to post_like_path(id: t.id, post_id: t.id), method: :delete do %>
+       <i class="fas fa-heart"></i><%= t.likes.count %>
+     <% end %>
+     <% else %>
+     <%= button_to post_likes_path(id: t.id, post_id: t.id), method: :post do %>
+     <i class="far fa-heart"></i><%= t.likes.count %>
+     <% end %>
+     <% end %>
+     <% else %>
+
+     <i class="far fa-heart">
+     </i><%= t.likes.count %>
+     <% end %>
+
+     <%= button_to "Delate", post_path(t.id), method: :delete %>
+     <%= link_to "Detail", post_path(t.id) %>
+     <% if user_signed_in? && current_user.id == t.user_id %>
+     <%= link_to "Edit", edit_post_path(t.id) %>
+
+      <% end %> 
+
+ </div>
+
+
+ 
+<% end %>
+
+  
+  
+</div>
+

@@ -1,0 +1,34 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+.date{
+  display: flex;   
+	flex-wrap: wrap;
+	gap: 10px;
+  justify-content: center;
+}
+
+.date{
+  font-family: 'Arial Black','Helvetica Neue','Helvetica','Arial','Hiragino Sans','ヒラギノ角ゴシック',YuGothic,'Yu Gothic','メイリオ', Meiryo,'ＭＳ Ｐゴシック','MS PGothic'  
+}
+
+.h1{
+  font-family: 'Arial Black','Helvetica Neue','Helvetica','Arial','Hiragino Sans','ヒラギノ角ゴシック',YuGothic,'Yu Gothic','メイリオ', Meiryo,'ＭＳ Ｐゴシック','MS PGothic'  
+}
+
+#love-block{
+  background-image: url("2024-01-17 (8).png");
+  background-size: cover;
+  color:#ffffff;
+  width: 100%;
+  height: 500px;
+  text-align: center;
+  font-size: 35px;
+  font-family: 'Arial Black','Helvetica Neue','Helvetica','Arial','Hiragino Sans','ヒラギノ角ゴシック',YuGothic,'Yu Gothic','メイリオ', Meiryo,'ＭＳ Ｐゴシック','MS PGothic'  
+}
+
+#date-block{
+  padding: 30px;
+}

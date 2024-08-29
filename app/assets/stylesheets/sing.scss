@@ -1,0 +1,35 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+.sign{
+  margin: 125px auto;
+  width: 665px;
+  height: 532px;
+  border-radius: 5%;
+  text-align: center;
+  background-color: #ffffff;
+  padding: 10px;
+  font-size: 28px;
+  font-family: 'Arial Black','Helvetica Neue','Helvetica','Arial','Hiragino Sans','ヒラギノ角ゴシック',YuGothic,'Yu Gothic','メイリオ', Meiryo,'ＭＳ Ｐゴシック','MS PGothic'  
+}
+
+.sign span{
+  width: 300px;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+
+#first-block {
+  background-image: url("2023-12-28 (1).png");
+  background-size: cover;
+  width: 100%;
+  height: 900px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
